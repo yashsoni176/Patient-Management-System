@@ -6,6 +6,7 @@ cursor = con.cursor()
 sqlite_query = '''CREATE TABLE patient( 
                patientcode TEXT PRIMARY KEY,
                name TEXT NOT NULL,
+               Address TEXT NOT NULL,
                phone INTEGER NOT NULL);'''
 cursor.execute(sqlite_query)
 
@@ -13,9 +14,10 @@ def add():
 
     patientcode = input("Patient Code : ")
     name = input("Name : ")
+    address = input("Address : ")
     phone = int(input("Phone number : "))
 
-    cursor.execute("INSERT INTO patient VALUES(?,?,?)",(patientcode,name,phone))
+    cursor.execute("INSERT INTO patient VALUES(?,?,?,?)",(patientcode,name,address,phone))
     print("INSERTED SUCCESSFULLY!")
 
 def view():
